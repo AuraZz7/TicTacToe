@@ -37,7 +37,9 @@ class Grid(object):
             self.clicked = False
 
     def check_winner(self):
-        for x in range(2):
+        global game_over
+        for x in range(3):
+            print(x)
             if self.chosen_tiles[x][0] == self.chosen_tiles[x][1] == self.chosen_tiles[x][2]:
                 self.winner = self.chosen_tiles[x][0]
             if self.chosen_tiles[0][x] == self.chosen_tiles[1][x] == self.chosen_tiles[2][x]:
@@ -55,6 +57,7 @@ class Grid(object):
             elif self.winner == "O":
                 self.o_score += 1
             self.turn = self.winner
+            game_over = True
 
     def get_tile_from_pos(self, pos):
         pos_x = pos_y = None
@@ -71,7 +74,8 @@ class Grid(object):
     def draw(self):
         self.draw_grid()
         self.draw_moves()
-        self.draw_hover()
+        if not game_over:
+            self.draw_hover()
 
     def draw_hover(self):
         pos = self.get_tile_from_pos(pg.mouse.get_pos())

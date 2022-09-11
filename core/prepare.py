@@ -9,13 +9,14 @@ alpha_surf = pg.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pg.SRCALPHA)
 
 
 # Font
-def get_font(size):
-    return pg.font.Font(None, size)
 
 
 # Colours
 white = (255, 255, 255)
+grey = (200, 200, 200)
 black = (0, 0, 0)
+bg_col = (42, 153, 209)
+line_col = (41, 119, 158)
 
 # Game variables
 TILE_SIZE = SCREEN_WIDTH // 3
